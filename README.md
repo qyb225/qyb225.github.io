@@ -1,2 +1,3 @@
-# qyb225.github.io
-Qubic‘s Homepage
+# Qubic's Blog
+
+[Click](https://qyb225.github.io/)
