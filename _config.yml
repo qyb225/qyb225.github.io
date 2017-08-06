@@ -1,16 +1,16 @@
 # Site settings
-title: Qubic's Blog
+title: Qubic's Website
 url: "https://qyb225.github.io"    # the protocol and hostname of your site
 baseurl: "" # the prefix of your site uri
 #timezone: Asia/Chongqing
 description: >
-  随便写点什么
+  Qubic 的个人网站
 
 # Your information
 email: qyb225@gmail.com
 author: Yibin Qiu
 avatar: "https://avatars2.githubusercontent.com/u/17106104?v=4&s=460"
-profile: 中山大学在读小白一枚
+profile: 双鸭山大学在读
 github_username:  qyb225
 
 permalink: /archivers/:title
