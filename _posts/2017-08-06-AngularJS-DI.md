@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AngularJS: 依赖注入"
+title:  "依赖注入 | AngularJS"
 date:   2017-08-06 12:40
 categories: AngularJS
 permalink: /angularjs/dependency-injection

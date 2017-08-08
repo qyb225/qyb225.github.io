@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AngularJS: Filter, Digest Cycle and Data Binding"
+title:  "Filter, Digest Cycle and Data Binding | AngularJS"
 date:   2017-08-06 12:50
 categories: AngularJS
 permalink: /angularjs/filter-digest-cycle-data-binding
