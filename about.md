@@ -5,7 +5,7 @@ permalink: /about/
 public: true
 ---
 
-# Welcome!
+# 欢迎前来听听我的故事
 
 ## 我是：
 
@@ -23,21 +23,23 @@ public: true
 
 * C 实现了丑陋无比的贪吃蛇 AI
 
-* Matlab 实现了超级简单的机器学习系统
+* Coursera 上完成 Stanford University 的 Machine Learning 课程, 成绩为 97；并用Matlab 实现了超级简单的机器学习系统
 
 ---
 
 ### 大二
 
-* C++ 造了一堆数[据结构轮子](https://github.com/qyb225/DSA/tree/master/inc)：红黑树，B树……
+* C++ 造了一堆数[**据结构轮子**](https://github.com/qyb225/DSA/tree/master/inc)：红黑树，B树……
 
 * 和舍友开发了仿生命线的文字冒险 UWP 游戏 [**Lifeline-MidnightSun**](https://github.com/qyb225/MidnightSun)
 
 * 入门前端，学校学习了 HTML5, CSS3 和 JS基础以及jQuery
 
-* 自学了 AngularJS, Angular2 和 Vue.js，能写一些简单的 SPA
+* 较详细地自学了 AngularJS，能写一些简单的 SPA
 
 * 学着用 node express 和 python Django 写了些很简单的后端，如初级实训扩展
+
+* Python NumPy 搭建机器学习神经网络 ( To be continued... )
 
 ---
 
