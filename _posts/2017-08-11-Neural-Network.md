@@ -2,7 +2,7 @@
 layout: post
 title:  "神经网络 (Neural Network) 初探"
 date:   2017-08-11 21:16
-categories: Deep Learning
+categories: Deep-Learning
 permalink: /deep-learning/neural-network-intro
 ---
 
