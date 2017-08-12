@@ -51,31 +51,31 @@ $$
 \sigma(z)=\frac{1}{1 + e^{-z}}
 $$" /></div>
 
-因此设置预测的值 **y_p** 会严格在0和1之间
+因此设置预测的值 **ŷ** 会严格在0和1之间
 
 ---
 
 ### Loss Function
 
 <div><img src="http://latex.codecogs.com/gif.latex?
-L(y_p, y) = -(y\log y_p + (1-y)\log (1 - y_p))
+L(\hat{y}, y) = -(y\log \hat{y} + (1-y)\log (1 - \hat{y}))
 $$" /></div>
 
 ---
 
 #### 当 y = 1 时：
 
-<div><img src="http://latex.codecogs.com/gif.latex?$$L(y_p, y) = - \log y_p$$" /></div>
+<div><img src="http://latex.codecogs.com/gif.latex?$$L(\hat{y}, y) = - \log \hat{y}$$" /></div>
 
-我们希望Loss function 小，因为 0 < yp < 1 所以 log yp < 0, - log yp > 0 且 yp -> 1，- log yp 越接近 0，所以此时 **yp 越接近 1 越好**
+我们希望Loss function 小，因为 0 < ŷ < 1 所以 log ŷ < 0, - log ŷ > 0 且 ŷ -> 1，- log ŷ 越接近 0，所以此时 **ŷ 越接近 1 越好**
 
 ---
 
 #### 当 y = 0 时：
 
-<div><img src="http://latex.codecogs.com/gif.latex?$$L(y_p, y) = - \log (1 - y_p)$$" /></div>
+<div><img src="http://latex.codecogs.com/gif.latex?$$L(\hat{y}, y) = - \log (1 - \hat{y})$$" /></div>
 
-同样希望Loss function 小，1 - yp 越大越好，所以此时 **yp 越接近 0 越好**
+同样希望Loss function 小，1 - ŷ 越大越好，所以此时 **ŷ 越接近 0 越好**
 
 ---
 
@@ -85,6 +85,6 @@ Cost Function 为 m 个样例中所有 Loss Function 的算术平均：
 
 <div><img src="http://latex.codecogs.com/gif.latex?
 $$
-J(\omega, b) \\\\= \frac {1}{m}\sum_{i=1}^{m}L(y_p^{(i)}, y^{(i)})
-\\= -\frac {1}{m}\sum_{i=1}^{m}(y^{(i)}\log y_p^{(i)} + (1-y^{(i)})\log (1 - y_p^{(i)}))
+J(\omega, b) \\\\= \frac {1}{m}\sum_{i=1}^{m}L(\hat{y}^{(i)}, y^{(i)})
+\\= -\frac {1}{m}\sum_{i=1}^{m}(y^{(i)}\log \hat{y}^{(i)} + (1-y^{(i)})\log (1 - \hat{y}^{(i)}))
 $$" /></div>
