@@ -5,7 +5,7 @@ permalink: /about/
 public: true
 ---
 
-# 欢迎前来听听我的故事
+# 既然点开了这个页面，不如听听我的故事？
 
 ## 我是：
 
@@ -39,7 +39,7 @@ public: true
 
 * 学着用 node express 和 python Django 写了些很简单的后端，如初级实训扩展
 
-* Python NumPy 搭建机器学习神经网络 ( To be continued... )
+* Python NumPy 搭建机器学习神经网络 ing...
 
 ---
 
