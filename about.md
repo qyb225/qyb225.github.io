@@ -23,7 +23,7 @@ public: true
 
 * C 实现了丑陋无比的贪吃蛇 AI
 
-* Coursera 上完成 Stanford University 的 Machine Learning 课程, 成绩为 97；并用Matlab 实现了超级简单的机器学习系统
+* Coursera 上完成 Stanford University 的 Machine Learning 课程, 成绩为 97
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "二元分类及 Logistic 回归"
-date:   2017-08-11 23:00
+date:   2017-08-12 00:00
 categories: Deep-Learning
 permalink: /deep-learning/logistic-regression
 ---
