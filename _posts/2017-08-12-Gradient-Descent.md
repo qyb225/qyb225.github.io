@@ -10,11 +10,11 @@ permalink: /deep-learning/gradient-decsent
 
 在之前的Logistic Regression 中，我们得到了整体的 Cost Function：
 
-<div><img src="http://latex.codecogs.com/gif.latex?
+![](http://latex.codecogs.com/gif.latex?
 $$
 J(\omega, b) \\\\= \frac {1}{m}\sum_{i=1}^{m}L(y_p^{(i)}, y^{(i)})
 \\= -\frac {1}{m}\sum_{i=1}^{m}(y^{(i)}\log y_p^{(i)} + (1-y^{(i)})\log (1 - y_p^{(i)}))
-$$" /></div><br />
+$$)
 
 而我们要做的，就是最小化这个Cost Function。
 
@@ -28,10 +28,10 @@ $$" /></div><br />
 
 我们可以利用如下的公式：
 
-<div><img src="http://latex.codecogs.com/gif.latex?
+![](http://latex.codecogs.com/gif.latex?
 $$
 \omega := \omega - \alpha \frac {d J(\omega)}{d \omega}
-$$" /></div>
+$$)
 
 * **当 &omega; < 局部最优解的时候，导数 < 0，迭代让 &omega; 增大**
 * **当 &omega; > 局部最优解的时候，导数 > 0，迭代让 &omega; 减小**
@@ -40,15 +40,15 @@ $$" /></div>
 
 推广到多参数类型，&omega; 为 n 维向量，b 为 实数，则：
 
-<div><img src="http://latex.codecogs.com/gif.latex?
+![](http://latex.codecogs.com/gif.latex?
 $$
 \omega := \omega - \alpha \frac {\partial J(\omega, b)}{\partial \omega}
-$$" /></div><br />
+$$)
 
-<div><img src="http://latex.codecogs.com/gif.latex?
+![](http://latex.codecogs.com/gif.latex?
 $$
 b := b-\alpha \frac {\partial J(\omega, b)}{\partial b}
-$$" /></div><br />
+$$)
 
 ---
 
@@ -171,7 +171,78 @@ $$" /></div><br />
 
 得到 Logistic Regression 的 Gradient descent公式：
 
-<div><img src="http://latex.codecogs.com/gif.latex?
+![](http://latex.codecogs.com/gif.latex?
 $$
-\omega := \omega - \frac {\alpha}{m}\sum_{i=1}^{m}(\hat{y} - y)x
-$$" /></div><br />
+\omega := \omega - \frac {\alpha}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} - y^{(i)})x^{(i)}
+$$)
+
+---
+
+## 算法实现：
+
+我们假设输入的训练样本 **X** 为 n * m 维矩阵，n 为feature 个数，m 为样例数。其中的 x(1), x(2) ... 都是 n 维向量
+
+![](http://latex.codecogs.com/gif.latex?
+$$
+X = \left[
+\begin{matrix}
+\vdots & \vdots & \vdots & \vdots \\
+ x^{(1)} & x^{(2)} &  \dots & x^{(m)} \\
+ \vdots & \vdots & \vdots & \vdots
+\end{matrix}
+\right]
+$$)
+
+初始化参数 n维向量 &omega;；实数 b
+
+![](http://latex.codecogs.com/gif.latex?
+$$
+\omega = \left[
+\begin{matrix}
+\omega_1\\
+\omega_2\\
+\vdots\\
+\omega_n\\
+\end{matrix}
+\right]
+$$)
+
+### Step 1
+
+![](http://latex.codecogs.com/gif.latex?
+$$
+z = (\omega^T · X) + b 
+$$)
+
+---
+
+### Step 2
+
+![](http://latex.codecogs.com/gif.latex?
+$$
+\hat{y} = \sigma(z)\\\\$$)
+
+<br />
+
+![](http://latex.codecogs.com/gif.latex?$$
+\frac {\partial J(\omega, b)}{\partial \omega} 
+= \frac{1}{m} ( X · (\hat{y} - y)^T)\\\\$$)
+
+![](http://latex.codecogs.com/gif.latex?$$
+\frac {\partial J(\omega, b)}{\partial b}
+= \frac{1}{m} (sum(\hat{y} - y))
+$$)
+
+### Step 3
+
+![](http://latex.codecogs.com/gif.latex?
+$$
+\omega := \omega - \alpha \frac {\partial J(\omega, b)}{\partial \omega}
+$$)
+
+![](http://latex.codecogs.com/gif.latex?
+$$
+b := b-\alpha \frac {\partial J(\omega, b)}{\partial b}
+$$)
+
+重复上述迭代。
