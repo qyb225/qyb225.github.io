@@ -21,7 +21,6 @@ permalink: /deep-learning/logistic-regression
 
 n维向量x：
 
-![](http://latex.codecogs.com/gif.latex?
 $$
 x = 
 \left[
@@ -32,14 +31,13 @@ x =
  xn     \\
 \end{matrix}
 \right]
-$$)
+$$
 
 假设 参数 **&omega;**, 同样为 n 维向量，另外还有参数 **b**，使得：
 
-![](http://latex.codecogs.com/gif.latex?
 $$
 z = \omega^T· x + b
-$$)
+$$
 
 但是我们发现问题：z可以是一个很大或者很小的数，而我们要预测的是 0 / 1，因此，我们引入 Logistic 函数
 
@@ -47,10 +45,9 @@ $$)
 
 表达式：
 
-![](http://latex.codecogs.com/gif.latex?
 $$
 \sigma(z)=\frac{1}{1 + e^{-z}}
-$$)
+$$
 
 因此设置预测的值 **ŷ** 会严格在0和1之间
 
@@ -58,15 +55,15 @@ $$)
 
 ### Loss Function
 
-![](http://latex.codecogs.com/gif.latex?
+$$
 L(\hat{y}, y) = -(y\log \hat{y} + (1-y)\log (1 - \hat{y}))
-$$)
+$$
 
 ---
 
 #### 当 y = 1 时：
 
-<div><img src="http://latex.codecogs.com/gif.latex?$$L(\hat{y}, y) = - \log \hat{y}$$" /></div>
+$$L(\hat{y}, y) = - \log \hat{y}$$
 
 我们希望Loss function 小，因为 0 < ŷ < 1 所以 log ŷ < 0, - log ŷ > 0 且 ŷ -> 1，- log ŷ 越接近 0，所以此时 **ŷ 越接近 1 越好**
 
@@ -74,7 +71,7 @@ $$)
 
 #### 当 y = 0 时：
 
-<div><img src="http://latex.codecogs.com/gif.latex?$$L(\hat{y}, y) = - \log (1 - \hat{y})$$" /></div>
+$$L(\hat{y}, y) = - \log (1 - \hat{y})$$
 
 同样希望Loss function 小，1 - ŷ 越大越好，所以此时 **ŷ 越接近 0 越好**
 
@@ -84,8 +81,9 @@ $$)
 
 Cost Function 为 m 个样例中所有 Loss Function 的算术平均：
 
-![](http://latex.codecogs.com/gif.latex?
 $$
-J(\omega, b) \\\\= \frac {1}{m}\sum_{i=1}^{m}L(\hat{y}^{(i)}, y^{(i)})
-\\\\= -\frac {1}{m}\sum_{i=1}^{m}(y^{(i)}\log \hat{y}^{(i)} + (1-y^{(i)})\log (1 - \hat{y}^{(i)}))
-$$)
+\begin{aligned}
+J(\omega, b) & = \frac {1}{m}\sum_{i=1}^{m}L(y_p^{(i)}, y^{(i)}) \\
+&= -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\log y_p^{(i)} + (1-y^{(i)})\log (1 - y_p^{(i)}))
+\end{aligned}
+$$
