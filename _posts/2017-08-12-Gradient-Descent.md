@@ -13,8 +13,8 @@ permalink: /deep-learning/gradient-decsent
 
 $$
 \begin{aligned}
-J(\omega, b) & = \frac {1}{m}\sum_{i=1}^{m}L(y_p^{(i)}, y^{(i)}) \\
-&= -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\log y_p^{(i)} + (1-y^{(i)})\log (1 - y_p^{(i)}))
+J(\omega, b) & = \frac {1}{m}\sum_{i=1}^{m}L(\hat{y}^{(i)}, y^{(i)}) \\
+&= -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\log \hat{y}^{(i)} + (1-y^{(i)})\log (1 - \hat{y}^{(i)}))
 \end{aligned}
 $$
 
