@@ -81,8 +81,8 @@ $$
 $$
 \frac {\partial J(\omega, b)}{\partial \omega}
 = \frac {\partial J(\omega, b)}{\partial \hat{y}} 
-* \frac {\partial \hat{y}}{\partial z} 
-* \frac {\partial z}{\partial \omega} 
+\times \frac {\partial \hat{y}}{\partial z} 
+\times \frac {\partial z}{\partial \omega} 
 $$
 
 **依靠这个式子，下面开始逐步化简**。
