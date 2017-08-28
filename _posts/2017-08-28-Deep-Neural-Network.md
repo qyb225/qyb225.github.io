@@ -10,7 +10,7 @@ permalink: /deep-learning/deep-neural-netWork
 
 ## Why deep representations?
 
-在使用深度神经网络之前，我们想要知道，为什么我们想要让自己的 Neural NetWork 变得更深？
+在使用深度神经网络之前，我们想要知道，为什么我们想要让自己的 Neural Network 变得更深？
 
 以 **CNN**（卷积神经网络）为例，CNN主要用于图像的识别，下图展现了在人脸识别中经过层层的卷积后，所能够探测的形状、概念也变得越来越抽象和复杂。
 
@@ -26,7 +26,7 @@ permalink: /deep-learning/deep-neural-netWork
 
 ## Implement
 
-对于 Deep Neural NetWork 来说，实现它主要分为两个大步骤：
+对于 Deep Neural Network 来说，实现它主要分为两个大步骤：
 
 1. Forward Propagation
 2. Backward Propagation
