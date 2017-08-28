@@ -43,7 +43,7 @@ Backward | dA[ l ] ( cache Z[ l ] )  | dA[ l - 1 ] ( dW[ l ] , db[ l ] )
 
 整个计算过程可以用以下流程图概括：
 
-![](../images/deep-learning/floWchart.png)
+![](../images/deep-learning/flowchart.png)
 
 ---
 
