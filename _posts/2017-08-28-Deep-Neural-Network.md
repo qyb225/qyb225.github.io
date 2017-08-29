@@ -3,7 +3,7 @@ layout: post
 title:  "Deep Neural NetWork 实现"
 date:   2017-08-28 10:30
 categories: Deep-Learning
-permalink: /deep-learning/deep-neural-netWork
+permalink: /deep-learning/deep-neural-network
 ---
 
 # 深度神经网络
@@ -83,7 +83,7 @@ $$\begin{aligned}
 $$
 \begin{aligned}
 dZ^{[l]} &= dA^{[l]} \times {g^{[l]}}^{\prime}(Z^{[l]})\\\\
-dW^{[l]} &= \frac{1}{m} dZ^{[l]} \cdot A^{[l - 1]} \\\\
+dW^{[l]} &= \frac{1}{m} dZ^{[l]} \cdot {A^{[l - 1]}}^{T} \\\\
 db^{[l]} &= \frac{1}{m} np.sum(dZ^{[l]}, axis = 1, keepdims = True) \\\\
 dA^{[l-1]} &= {W^{[l]}}^{T} \cdot dZ^{[l]}
 \end{aligned}
