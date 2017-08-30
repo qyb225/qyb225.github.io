@@ -35,11 +35,11 @@ public: true
 
 * 入门前端，学校学习了 HTML5, CSS3 和 JS基础以及jQuery
 
+* 自学了 Node.js 的 Express框架 和 Python 的 Django框架，能够搭建一些[**简单的后端**](https://github.com/qyb225/Agenda)
+
 * 较详细地自学了 AngularJS，能写一些简单的 SPA
 
-* 学着用 node express 和 python Django 写了些很简单的后端，如初级实训扩展
-
-* Python NumPy 搭建机器学习神经网络 ing...
+* Python NumPy 搭建 [**Deep Learning 神经网络**](https://github.com/qyb225/DeepLearning)，识别 **“猫”** 的图像
 
 ---
 

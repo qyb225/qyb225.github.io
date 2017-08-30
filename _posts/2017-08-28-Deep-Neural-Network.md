@@ -28,8 +28,9 @@ permalink: /deep-learning/deep-neural-network
 
 对于 Deep Neural Network 来说，实现它主要分为两个大步骤：
 
-1. Forward Propagation
-2. Backward Propagation
+1. **Forward Propagation**：计算 **ŷ** 从而计算出 Cost Function
+
+2. **Backward Propagation**：计算参数矩阵的偏导数从而进行迭代
 
 以 **Layer l** 为例:
 

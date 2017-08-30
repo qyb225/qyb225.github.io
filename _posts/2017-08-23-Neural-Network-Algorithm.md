@@ -6,7 +6,7 @@ categories: Deep-Learning
 permalink: /deep-learning/neural-network-algorithm
 ---
 
-# Neural Network 算法实现 ( Gradient Descent )
+# 一个 Hidden Layer 的 Neural Network 算法实现 ( Gradient Descent )
 
 ![](../images/deep-learning/nn-layer.jpg)
 
