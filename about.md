@@ -29,7 +29,7 @@ public: true
 
 ### 大二
 
-* C++ 造了一堆数[**据结构轮子**](https://github.com/qyb225/DSA/tree/master/inc)：红黑树，B树……
+* C++ 造了一堆[**数据结构轮子**](https://github.com/qyb225/DSA/tree/master/inc)：红黑树，B树……
 
 * 和舍友开发了仿生命线的文字冒险 UWP 游戏 [**Lifeline-MidnightSun**](https://github.com/qyb225/MidnightSun)
 
