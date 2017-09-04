@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deep Neural NetWork 实现"
+title:  "Deep Neural Network 实现"
 date:   2017-08-28 10:30
 categories: Deep-Learning
 permalink: /deep-learning/deep-neural-network
