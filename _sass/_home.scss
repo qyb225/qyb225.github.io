@@ -8,13 +8,13 @@
 		font-size: 34px;
     }
 }
-.rss-link {
+.page-views {
 	float:right;
     text-decoration: none;
     border:1px solid;
     color: #999;
     background: #fff;
-    font-size: 0.7 * $base-font-size;
+    font-size: 0.75 * $base-font-size;
     padding: 1px 8px;
     
     &:hover, &:focus {
