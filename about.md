@@ -9,11 +9,9 @@ public: true
 
 ## 我是：
 
-* 中山大学2015级软件工程 魔法学徒
+* 中山大学2015级软件工程计应方向大三学生
 
-* 电影美剧狂热爱好者
-
-* 中大计辩2015级队长
+* 中大数据科学与计算机学院辩论队2015级队长
 
 ---
 
@@ -24,6 +22,8 @@ public: true
 * C 实现了丑陋无比的贪吃蛇 AI
 
 * Coursera 上完成 Stanford University 的 Machine Learning 课程, 成绩为 97
+
+[![certificate](../images/certificate/ml-certificate.jpg)](https://www.coursera.org/account/accomplishments/verify/YX8Z8H6BTU7Q)
 
 ---
 
