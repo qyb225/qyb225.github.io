@@ -23,7 +23,10 @@ public: true
 
 * Coursera 上完成 Stanford University 的 Machine Learning 课程, 成绩为 97
 
-[![certificate](../images/certificate/ml-certificate.jpg)](https://www.coursera.org/account/accomplishments/verify/YX8Z8H6BTU7Q)
+<a href="https://www.coursera.org/account/accomplishments/verify/YX8Z8H6BTU7Q" target="_blank">
+    <img alt="certificate" src="../images/certificate/ml-certificate.jpg">
+</a>
+
 
 ---
 
