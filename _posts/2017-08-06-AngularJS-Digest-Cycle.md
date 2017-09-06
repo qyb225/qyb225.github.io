@@ -79,7 +79,7 @@ Don't need to add "Filter" in html file
 
 在\$scope中的变量如果在html中显示，angular为其创建watcher，负责监视它是否有变化：angular事件触发trigger，进行dirty checking，有变化则改变html中的显示，直到一次check没有任何dirty数据，则退出循环，因此这个dirty checking的循环一般持续2次。这个循环称为 Digest Cycle.
 
-![](../images/DigestLoop.png)
+![](../images/angularjs/DigestLoop.png)
 
 因为每次事件都会触发 **dirty checking** 从而来实现双向数据绑定，而每次 dirty checking 会遍历watcher队列，所以 AngularJS 的双向数据绑定效率很低。在 Vue 和 Angular2 中已经得到解决。
 
