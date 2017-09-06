@@ -127,11 +127,22 @@ Dropout 是指按一定概率随机让每一层的某些节点失活，从而降
 ```py
 # 以 layer3 为例, a3 为 layer3 计算出的所有节点
 keep_prop = 0.8
+
 d3 = np.random.rand(a3.shape[0], a3.shape[1]) < keep_prop
+
+# Forward Prop
 a3 = np.multiply(a3, d3)
 
 # 保持 a3 期望不变
 a3 /= keep_prop
+
+
+# Backward Prop
+da3 = np.multiply(da3, d3)
+
+# 同样保持 da3 期望不变
+da3 /= keep_prop
+
 ```
 
 注：在 Test 阶段不应用 Dropout.
