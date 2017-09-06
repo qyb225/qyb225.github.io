@@ -1,12 +1,9 @@
-# Site settings
 title: Qubic's Website
-url: "https://qyb225.github.io"    # the protocol and hostname of your site
-baseurl: "" # the prefix of your site uri
-#timezone: Asia/Chongqing
+url: "https://qyb225.github.io"
+baseurl: ""
 description: >
   Qubic 的个人网站
 
-# Your information
 email: qyb225@gmail.com
 author: Yibin Qiu
 avatar: "https://avatars2.githubusercontent.com/u/17106104?v=4&s=460"
@@ -19,7 +16,6 @@ plugins:
  - jekyll-gist
  - jemoji
 
-# Build settings
 paginate: 5
 paginate_path: "page:num"
 
