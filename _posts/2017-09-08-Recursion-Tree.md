@@ -103,12 +103,12 @@ $$
 
 ---
 
-同样的，如果递归式为 **T(n) = 4T(n / 2) + O(n)** 我们也可以利用递归树分析出:
+同样的，如果递归式为 **T(n) = 4T(n / 2) + O(n)** 我们也可以利用递归树分析出 *（式子中的相等指渐进意义下）*:
 
 $$
 \begin{aligned}
-T(n) & = cn + 4 \times \frac{cn}{2} + 16 \times \frac{cn}{4} + ... \\\\
-& = cn + 2cn + 4cn + 6cn + ... + ncn
+T(n) & = cn + 4 \times \frac{cn}{2} + 16 \times \frac{cn}{4} + ... + 4^{logn}\times\frac{cn}{2^{logn}}\\\\
+& = cn + 2cn + 4cn + 8cn + ... + ncn
 \end{aligned}
 $$
 
