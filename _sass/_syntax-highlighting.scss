@@ -3,7 +3,7 @@
     .hll { background-color: #49483e }
     .c { color: #75715e } /* Comment */
     .err { color: #960050; background-color: #1e0010 } /* Error */
-    .k { color: #66d9ef } /* Keyword */
+    .k { color: #fa2873 } /* Keyword */
     .l { color: #ae81ff } /* Literal */
     .n { color: #f8f8f2 } /* Name */
     .o { color: #f92672 } /* Operator */
@@ -19,7 +19,9 @@
     .kn { color: #f92672 } /* Keyword.Namespace */
     .kp { color: #66d9ef } /* Keyword.Pseudo */
     .kr { color: #66d9ef } /* Keyword.Reserved */
-    .kt { color: #66d9ef } /* Keyword.Type */
+    .kt { color: #66d9ef; 
+        font-style: italic; 
+    } /* Keyword.Type */
     .ld { color: #e6db74 } /* Literal.Date */
     .m { color: #ae81ff } /* Literal.Number */
     .s { color: #e6db74 } /* Literal.String */
