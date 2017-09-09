@@ -23,7 +23,7 @@ public: true
 
 * Coursera 上完成 Stanford University 的 Machine Learning 课程, 成绩为 97
 
-<a href="https://www.coursera.org/account/accomplishments/verify/YX8Z8H6BTU7Q" target="_blank">
+<a href="https://www.coursera.org/account/accomplishments/certificate/YX8Z8H6BTU7Q" target="_blank">
     <img alt="certificate" src="../images/certificate/ml-certificate.jpg">
 </a>
 
@@ -38,7 +38,7 @@ public: true
 
 * 入门前端，学校学习了 HTML5, CSS3 和 JS基础以及jQuery
 
-* 自学了 Node.js 的 Express框架 和 Python 的 Django框架，能够搭建一些[**简单的后端**](https://github.com/qyb225/Agenda)
+* 自学了 Node.js 的 Express框架 和 Python 的 Django框架，能够搭建一些简单的后端
 
 * 较详细地自学了 AngularJS，能写一些简单的 SPA
 

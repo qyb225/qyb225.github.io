@@ -8,7 +8,9 @@ permalink: /algorithm/recursion-tree
 
 # Recursion Tree
 
-在使用**分治法( Divide and Conquer )** 来求解问题的过程中不可避免会用到**递归( Recursion )**，这给算法的复杂度分析带来了麻烦，使用归并排序 ( Merge Sort ) 进行说明。
+在使用**分治法( Divide and Conquer )** 来求解问题的过程中不可避免会用到**递归( Recursion )**，这给算法的复杂度分析带来了麻烦。但是幸运的是，递归树这种方法总能有用；不幸的是，它将会用到我们一个又爱又恨的符号，也就是 **“点点点” ( ... )**
+
+下面将会使用归并排序 ( Merge Sort ) 说明这种方法。
 
 ---
 
