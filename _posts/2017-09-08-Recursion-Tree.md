@@ -24,9 +24,9 @@ def merge_sort(nums):
     if n < 2:
         return
     else:
-        nums_left = mergeSort(nums[0 : n / 2])
-        nums_right = mergeSort(nums[n / 2 : n])
-        merge(numsLeft, numsRight)
+        nums_left = merge_sort(nums[0 : n / 2])
+        nums_right = merge_sort(nums[n / 2 : n])
+        merge(nums_left, nums_right) #O(n)
 ```
 
 ---
