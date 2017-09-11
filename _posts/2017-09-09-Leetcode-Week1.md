@@ -8,11 +8,11 @@ permalink: /leetcode/week1
 
 # Problem Set #1
 
-记录第一周 (2017/09/04 - 2017/09/10) 完成的题目。
+记录第一周 (2017/09/04 - 2017/09/10) 完成的题目。本周共完成 5 题。
 
 ---
 
-## # 2. Add Two Numbers
+## #2. Add Two Numbers
 
 ### 问题描述
 
