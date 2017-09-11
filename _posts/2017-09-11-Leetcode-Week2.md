@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "LeetCode Week2"
-date:   2017-09-10 17:30
+date:   2017-09-11 17:30
 categories: LeetCode
 permalink: /leetcode/week2
 ---
