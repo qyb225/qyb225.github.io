@@ -12,6 +12,86 @@ permalink: /leetcode/week2
 
 ---
 
+## #15. 3Sum
+
+Difficulty: Medium
+
+### 问题描述
+
+Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+Note: The solution set must not contain duplicate triplets.
+
+For example: 
+
+given array **S = [-1, 0, 1, 2, -1, -4]**,
+
+A solution set is: **[ [-1, 0, 1], [-1, -1, 2] ]**
+
+### 分析
+
+这道题以前接触过，因此还是能想到方法的。朴素解法就是三重循环分别相加看看和是否为 0 ，然而复杂度达到了 **O(n^3)**。因此必须采用新的方法。
+
+算法：首先对数据进行排序。假设有三个指针 first, second, third，分别指向第一个，first 后一个和最后一个排序后的元素。固定 first，计算三个指针指向的数字的和 sum，有以下几种情况：
+
+1. **sum < 0**：偏小，需要寻找更大的，因为first固定，所以我们让 second++。
+2. **sum > 0**：偏大，需要寻找更小的，让 third--。
+3. **sum == 0**：找出一个解，同时让 second++, third--。为了去重复，所以如果新的 second 和之前一样则直接跳过，third 亦然。
+
+进行一趟扫描后，增加 first 的值，如果 first 值和之前一样则没有必要重复计算，直接自增即可。
+
+
+采用上述算法，复杂度可以降到 **O(n^2)**，顺利 AC。
+
+### 实现
+
+C++ 实现：
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        vector<vector<int>> ans; //#include <vector>
+        if (nums.size() < 3) {
+            return ans;
+        }
+        vector<int> ansTemp;
+        sort(nums.begin(), nums.end());  //#include <algorithm>
+        
+        int first = 0;
+        while (first < nums.size() - 2) {
+            ansTemp.push_back(nums[first]);
+            int second = first + 1, third = nums.size() - 1;
+            while (second < third) {
+                int sum = nums[first] + nums[second] + nums[third];
+                if (sum < 0) {
+                    ++second;
+                } else if (sum > 0) {
+                    --third;
+                } else {
+                    ansTemp.push_back(nums[second]);
+                    ansTemp.push_back(nums[third]);
+                    ans.push_back(ansTemp);
+                    while (second < third && nums[++second] == ansTemp[1]);
+                    while (second < third && nums[--third] == ansTemp[2]);
+                    ansTemp.pop_back();
+                    ansTemp.pop_back();
+                }
+            }
+            ansTemp.pop_back();
+            while (first < nums.size() - 2 && nums[first] == nums[++first]);
+        }
+        return ans;
+    }
+};
+```
+
+小炫耀一下（虽然不知道为啥会这样）：
+
+![](../images/leetcode/P15.png)
+
+---
+
 ## #8. String to Integer (atoi)
 
 Difficulty: Medium
@@ -180,5 +260,135 @@ char* longestCommonPrefix(char** strs, int strsSize) {
         }
         ++i;
     }
+}
+```
+
+---
+
+## #16. 3Sum Closest
+
+Difficulty: Medium
+
+### 问题描述
+
+Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+
+For example, given array **S = {-1 2 1 -4}**, and **target = 1**.
+
+The sum that is closest to the target is **2**. **(-1 + 2 + 1 = 2)**.
+
+
+### 分析
+
+这道题和 #15. 3Sum 题目如出一辙，因此解法相似。[**Go to #15“分析”**](#分析)。
+
+### 实现
+
+C++ 实现：
+
+```cpp
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+        if (nums.size() < 3) {
+            return 0;
+        }
+        sort(nums.begin(), nums.end());
+        int sum = nums[0] + nums[1] + nums[2];
+        int minDistSum = sum;
+        int dist = sum > target ? sum - target : target - sum;
+        int minDist = dist;
+        for (int first = 0; first < nums.size() - 2; ++first) {
+            int second = first + 1;
+            int third = nums.size() - 1;
+            while (second < third) {
+                sum = nums[first] + nums[second] + nums[third];
+                if (sum > target) {
+                    --third;
+                    dist = sum - target;
+                } else if (sum < target) {
+                    ++second;
+                    dist = target - sum;
+                } else {
+                    return target;
+                }
+                if (dist < minDist) {
+                    minDist = dist;
+                    minDistSum = sum;
+                }
+            }
+        }
+        return minDistSum;
+    }
+};
+```
+
+---
+
+## #17. Letter Combinations of a Phone Number
+
+Difficulty: Medium
+
+### 问题描述
+
+Given a digit string, return all possible letter combinations that the number could represent.
+
+Input:Digit string **"23"**
+
+Output: **["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]**.
+
+### 分析
+
+首先，如果只输入一个数字 **"2"**，则解是 **["a", "b", "c"]**。如果继续输入 **"23"**，则：
+
+* a: a**d**, a**e**, a**f**
+* b: b**d**, b**e**, b**f**
+* c: c**d**, c**e**, c**f**
+
+**即原来的答案分别加上新来的所有字母**。
+
+设已经算出一个答案 ans，再加入一个新的数字对应的字符集 newCome。算出他俩合并后的答案，用伪代码表示：
+
+```
+for i = 0 to ans.length - 1:
+    for j = 0 to newCome.lenth -1:
+        newAns.append(ans[i] + newCome[j])
+    endfor
+endfor
+```
+
+### 实现
+
+C++ 实现：
+
+```cpp
+class Solution {
+public:
+    vector<string> letterCombinations(string digits);
+    vector<string> multiply(vector<string>& strArray, string str);
+};
+
+vector<string> Solution::letterCombinations(string digits) {
+    string letter[10] = {"", "", "abc", "def", "ghi", 
+                         "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    vector<string> ans;
+    for (int i = 0; i < digits.size(); ++i) {
+        ans = multiply(ans, letter[digits[i] - '0']);
+    }
+    return ans;
+}
+
+vector<string> Solution::multiply(vector<string>& strArray, string str) {
+    vector<string> ans;
+    for (int i = 0; i < str.size(); ++i) {
+        if (strArray.size()) {
+            for (int j = 0; j < strArray.size(); ++j) {
+                ans.push_back(strArray[j] + str[i]);
+            }
+        } else {
+            ans.push_back(string(1, str[i]));
+        }
+    }
+    return ans;
 }
 ```
