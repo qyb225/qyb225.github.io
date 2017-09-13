@@ -120,3 +120,13 @@ git push origin master //将本地代码上传到远程的 master 分支
 git pull               //将远程对应分支的代码同步到本地
 git pull origin master //将远程master分支代码同步到本地
 ```
+
+---
+
+这些操作可以用一张图概括：
+
+![](../images/git/add-commit-push.png)
+
+---
+
+下一篇：[Git 使用手册（二）：Git 分支管理](/git/branch)
