@@ -14,7 +14,7 @@ permalink: /leetcode/week1
 
 ## #2. Add Two Numbers
 
-### 问题描述
+**问题描述**
 
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
@@ -24,11 +24,11 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 
 **Output: 7 -> 0 -> 8**
 
-### 分析
+**分析**
 
 一趟循环，直接将 l1 和 l2 节点相加存入 l1。需要注意的是，如果需要进位而后面没有 ListNode，则需要自己创建一个 ListNode 存入 1。如果一趟循环后，l2 更长，则直接连接 l1 目前的位置 和 l2 目前的位置即可。
 
-### 实现
+**实现**
 
 C++ 实现：
 
@@ -90,7 +90,7 @@ ListNode* Solution::addTwoNumbers(ListNode* l1, ListNode* l2) {
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**
 
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -103,13 +103,13 @@ Given **"bbbbb"**, the answer is **"b"**, with the length of **1**.
 Given **"pwwkew"**, the answer is "wke", with the length of **3**.
 
 
-### 分析
+**分析**
 
 首先需要一个数组，存储所有的字串是否出现过。指针 i 和指针 j 分别指向第一二个元素。j 遍历整个字符串，如果 j 没有出现过，则自增。如果发生了重复，则 i 前移到重复元素后一个元素并消去途中所有元素的 exist 值。
 
-复杂度分析：j 会遍历字符串，i 在最差情况下也会遍历字符串，字符串最多被遍历2次，所以复杂度为 **O(n)**
+复杂度分析**：j 会遍历字符串，i 在最差情况下也会遍历字符串，字符串最多被遍历2次，所以复杂度为 **O(n)**
 
-### 实现
+**实现**
 
 C 实现：
 
@@ -146,7 +146,7 @@ int lengthOfLongestSubstring(char* s) {
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**
 
 The string **"PAYPALISHIRING"** is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
 
@@ -160,11 +160,11 @@ And then read line by line: **"PAHNAPLSIIGYIR"**
 
 Write the code that will take a string and make this conversion given a number of rows
 
-### 分析
+**分析**
 
 直接根据题目表述构建矩阵，按照规则添加元素，然后一层一层导入最后的 ans 就能够解出此题，且运行效率也能让人满意，只需要遍历一遍字符串即可，复杂度 **O(n)**。
 
-### 实现
+**实现**
 
 C++ 实现：
 
@@ -200,18 +200,18 @@ public:
 
 Difficulty: Easy
 
-### 问题描述
+**问题描述**
 
 Reverse digits of an integer.
 
 Example1: **x = 123, return 321**  
 Example2: **x = -123, return -321**
 
-### 分析
+**分析**
 
 每次 x % 10 获得个位，然后再 x / 10，依次从后向前取到了每一位数字，不断将之前 ans * 10 + 这个数字就好，值得注意的是溢出问题，用了 long long 存储并和 INT_MAX 比较，虽然说这是一个取巧的方法，并没有真正的解决溢出问题，但是暂时也想不到什么更好的方法了。
 
-### 实现
+**实现**
 
 C 实现：
 
@@ -243,15 +243,15 @@ int reverse(int x) {
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**
 
 Implement pow(x, n).
 
-### 分析
+**分析**
 
 如果采用 x 连乘 n 次的方法解题，复杂度达到 **O(n)** 难以满足要求，因此采用上课所讲的分治法，将问题转化为两个 pow(x, n / 2)相乘，然后递归调用直到 n 为 0 或 1，可以完成该题目，复杂度 **O(logn)**
 
-### 实现
+**实现**
 
 C 实现：
 
