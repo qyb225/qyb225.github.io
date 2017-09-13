@@ -16,7 +16,7 @@ permalink: /leetcode/week2
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**：
 
 Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
 
@@ -28,7 +28,7 @@ given array **S = [-1, 0, 1, 2, -1, -4]**,
 
 A solution set is: **[ [-1, 0, 1], [-1, -1, 2] ]**
 
-### 分析
+**分析**：
 
 这道题以前接触过，因此还是能想到方法的。朴素解法就是三重循环分别相加看看和是否为 0 ，然而复杂度达到了 **O(n^3)**。因此必须采用新的方法。
 
@@ -43,7 +43,7 @@ A solution set is: **[ [-1, 0, 1], [-1, -1, 2] ]**
 
 采用上述算法，复杂度可以降到 **O(n^2)**，顺利 AC。
 
-### 实现
+**实现**：
 
 C++ 实现：
 
@@ -96,13 +96,13 @@ public:
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**：
 
 Implement atoi to convert a string to an integer.
 
 **Hint**: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
 
-### 分析
+**分析**：
 
 题目本身不难，但是通过测试样例发现了以下几个坑：
 
@@ -111,7 +111,7 @@ Implement atoi to convert a string to an integer.
 * 计算到第一个非数字字符为止
 * 烦人的 Overflow 问题
 
-### 实现
+**实现**：
 
 C 语言实现：
 
@@ -147,15 +147,15 @@ int myAtoi(char* str) {
 
 Difficulty: Easy
 
-### 问题描述
+**问题描述**：
 
 Determine whether an integer is a palindrome. Do this without extra space.
 
-### 分析
+**分析**：
 
 一开始的想法很简单，int 转换为字符串然后直接递归判断是否回文即可。然后仔细一看题目有一句：**Do this without extra space**. 而转换字符串需要新的的空间开销。然后再的想法就是倒转这个 int，如果倒转后的 reverse_x 和 x 相等，便是回文数。
 
-### 实现
+**实现**：
 
 C 实现：
 
@@ -180,13 +180,13 @@ int isPalindrome(int x) {
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**：
 
 Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
 
 **Note**: You may not slant the container and n is at least 2.
 
-### 分析
+**分析**：
 
 看到这个题，第一个想到的办法就是 i, j 分别指向一个柱子（vertical line），然后循环两遍求出所有的面积即可算出最大面积。但是这样的解法复杂度达到 **O(n^2)**，略高。
 
@@ -200,7 +200,7 @@ Given n non-negative integers a1, a2, ..., an, where each represents a point at 
 
 ---
 
-### 实现
+**实现**：
 
 C 实现
 
@@ -229,15 +229,15 @@ int maxArea(int* height, int heightSize) {
 
 Difficulty: Easy
 
-### 问题描述
+**问题描述**：
 
 Write a function to find the longest common prefix string amongst an array of strings.
 
-### 分析
+**分析**：
 
 这道题比较容易，只需要两重循环遍历数组列表，判断他们相同 index 的字符是否相等即可，到 '\0' 或者第一个不相等元素则停下。
 
-### 实现
+**实现**：
 
 C 实现：
 
@@ -269,7 +269,7 @@ char* longestCommonPrefix(char** strs, int strsSize) {
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**：
 
 Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 
@@ -278,11 +278,11 @@ For example, given array **S = {-1 2 1 -4}**, and **target = 1**.
 The sum that is closest to the target is **2**. **(-1 + 2 + 1 = 2)**.
 
 
-### 分析
+**分析**：
 
-这道题和 #15. 3Sum 题目如出一辙，因此解法相似。[**Go to #15“分析”**](#分析)。
+这道题和 #15. 3Sum 题目如出一辙，因此解法相似。[**Go to #15. 3Sum**](#15-3sum)。
 
-### 实现
+**实现**：
 
 C++ 实现：
 
@@ -329,7 +329,7 @@ public:
 
 Difficulty: Medium
 
-### 问题描述
+**问题描述**：
 
 Given a digit string, return all possible letter combinations that the number could represent.
 
@@ -337,7 +337,7 @@ Input:Digit string **"23"**
 
 Output: **["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]**.
 
-### 分析
+**分析**：
 
 首先，如果只输入一个数字 **"2"**，则解是 **["a", "b", "c"]**。如果继续输入 **"23"**，则：
 
@@ -357,7 +357,7 @@ for i = 0 to ans.length - 1:
 endfor
 ```
 
-### 实现
+**实现**：
 
 C++ 实现：
 
