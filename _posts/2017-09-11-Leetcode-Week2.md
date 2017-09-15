@@ -35,8 +35,8 @@ A solution set is: **[ [-1, 0, 1], [-1, -1, 2] ]**
 算法：首先对数据进行排序。假设有三个指针 first, second, third，分别指向第一个，first 后一个和最后一个排序后的元素。固定 first，计算三个指针指向的数字的和 sum，有以下几种情况：
 
 1. **sum < 0**：偏小，需要寻找更大的，因为first固定，所以我们让 second++。
-2. **sum > 0**：偏大，需要寻找更小的，让 third--。
-3. **sum == 0**：找出一个解，同时让 second++, third--。为了去重复，所以如果新的 second 和之前一样则直接跳过，third 亦然。
+2. **sum > 0**：偏大，需要寻找更小的，让 third-\-。
+3. **sum == 0**：找出一个解，同时让 second++, third-\-。为了去重复，所以如果新的 second 和之前一样则直接跳过，third 亦然。
 
 进行一趟扫描后，增加 first 的值，如果 first 值和之前一样则没有必要重复计算，直接自增即可。
 
@@ -119,7 +119,7 @@ C 语言实现：
 int myAtoi(char* str) {
     int n = strlen(str);
     int sign = 1, i = 0;
-    long long ans = 0;
+    long ans = 0;
     while (str[i] == ' ') {
         ++i;
     }
@@ -193,7 +193,7 @@ Given n non-negative integers a1, a2, ..., an, where each represents a point at 
 这个题目开始觉得比较坑的原因是要求解的柱子不是相邻的柱子，很有可能跨很远。不过后来这一点也成了一个突破口，于是最后查阅一些资料后采用下述算法：
 
 * 开始将一个指针 i 指向头，一个指针 j 指向尾部。
-* 比较 i, j 的大小，如果 i 小则增加，j 小则减小，因为在 i++ 和 j--的时候横向距离已经小了，我们只能求助于更长的柱子才可能有突破。
+* 比较 i, j 的大小，如果 i 小则增加，j 小则减小，因为在 i++ 和 j-\-的时候横向距离已经小了，我们只能求助于更长的柱子才可能有突破。
 * 每次都保存一个 max 值比较新的值，必要时更新 max。
 
 采用这种算法，只需要遍历 height 数组一次，复杂度为 **O(n)**.
@@ -390,5 +390,268 @@ vector<string> Solution::multiply(vector<string>& strArray, string str) {
         }
     }
     return ans;
+}
+```
+
+---
+
+## #20. Valid Parentheses
+
+Difficulty: Medium
+
+**问题描述**：
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+The brackets must close in the correct order, **"()" and "()[]{}"** are all **valid** but **"(]" and "([)]"** are **not**.
+
+**分析**：
+
+**Stack** 应用的经典问题，如果遇到**左括号**则直接入栈，如果遇到**右括号**则匹配，匹配成功的左括号出栈，匹配不成功或最后栈不为空则证明无法匹配，返回 **false**
+
+**实现**：
+
+C 实现：
+
+```c
+int isValid(char* s) {
+    int lenth = strlen(s);
+    char* stackBottom = (char*) malloc(lenth);
+    int i, stackTopPtr = -1;
+    for (i = 0; i < lenth; ++i) {
+        if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
+            stackBottom[++stackTopPtr] = s[i];
+        } else if ((s[i] == ')' && stackBottom[stackTopPtr] == '(')
+                    || (s[i] == ']' && stackBottom[stackTopPtr] == '[')
+                    || (s[i] == '}' && stackBottom[stackTopPtr] == '{')) {
+            --stackTopPtr;
+        } else {
+            free(stackBottom);
+            return 0;
+        }
+    }
+    free(stackBottom);
+    return stackTopPtr == -1;
+}
+```
+
+---
+
+## #23. Merge k Sorted Lists
+
+Difficulty: Hard
+
+**问题描述**：
+
+Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+
+**分析**：
+
+k 路归并，朴素解法是每次都比较链表头 k 个元素的大小，然后选择最小的进入 ans 中。复杂度 **O(k N)**.
+
+如果使用分治，将 k 路两两合并，然后一直递归下去，复杂度为 **O(logk N)**.
+
+
+**实现**：
+
+C++ 实现：
+
+```cpp
+struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int v) : val(v), next(NULL) {} 
+};
+
+class Solution {
+public:
+    ListNode* merge2Lists(ListNode* lists1, ListNode* lists2);
+    ListNode* mergeKLists(vector<ListNode*>& lists);
+};
+
+ListNode* Solution::mergeKLists(vector<ListNode*>& lists) {
+    if (lists.size() == 0) {
+        return NULL;
+    } else if (lists.size() < 2) {
+        if (lists[0]) {
+            return lists[0];
+        }
+        return NULL;
+    } else if (lists.size() == 2) {
+        return merge2Lists(lists[0], lists[1]);
+    } else {
+        vector<ListNode*> temp;
+        int i = 0;
+        while (i < lists.size()) {
+            if (i != lists.size() - 1) {
+                temp.push_back(merge2Lists(lists[i], lists[i + 1]));
+                i += 2;
+            } else {
+                temp.push_back(lists[i]);
+                i += 1;
+            }
+        }
+        return mergeKLists(temp);
+    }
+}
+
+ListNode* Solution::merge2Lists(ListNode* lists1, ListNode* lists2) {
+    if (!lists1 || !lists2) {
+        if (lists1) {
+            return lists1;
+        }
+        if (lists2) {
+            return lists2;
+        }
+        return NULL;
+    }
+
+    ListNode *l1Head = lists1, *l2Head = lists2;
+    ListNode *ans = NULL, *temp = NULL;
+    if (l1Head->val < l2Head->val) {
+        ans = l1Head;
+        l1Head = l1Head->next;
+        ans->next = NULL;
+    } else {
+        ans = l2Head;
+        l2Head = l2Head->next;
+        ans->next = NULL;
+    }
+    temp = ans;
+    while (l1Head && l2Head) {
+        if (l1Head->val < l2Head->val) {
+            temp->next = l1Head;
+            l1Head = l1Head->next;
+            temp = temp->next;
+            temp->next = NULL;
+        } else {
+            temp->next = l2Head;
+            l2Head = l2Head->next;
+            temp = temp->next;
+            temp->next = NULL;
+        }
+    }
+    if (l1Head) {
+        temp->next = l1Head;
+    }
+    if (l2Head) {
+        temp->next = l2Head;
+    }
+
+    return ans;
+}
+```
+
+---
+
+## #33. Search in Rotated Sorted Array
+
+Difficulty: Medium
+
+**问题描述**：
+
+Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+
+**(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2)**.
+
+You are given a target value to search. If found in the array return its index, otherwise return -1.
+
+You may assume no duplicate exists in the array.
+
+**分析**：
+
+最简单的方法就是顺序查找，复杂度 **O(n)**，这样的话，给出的 array 的特性完全没有利用到，所以一定存在更高效的算法。
+
+因为这只是一个 sorted array 中间旋转了一下，相当于两个 sorted array，而且左边 array 的最小值 > 右边 array 的最大值。所以我们要做的，就是在找到 target 在哪个 array 中，之后采用二分查找即可。
+
+选出 nums 中间的 **mi-index** 元素，判断这个元素左边和右边是否构成了顺序序列。
+
+只需要对比 nums[mi] 是否 < nums[hi] 或 nums[mi] 是否 > nums[lo] 即可，所以这一步一定能够找到一个 sorted 序列。
+
+找到后判断 target 是否在这个 sorted 序列里面，如果在里面直接 Binary Search 即可解决此问题。如果 target 不在 sorted 序列里，则必然在另一个序列里，根据条件赋值 mi 给 lo 或者 hi，重复上述过程即可解决该问题。
+
+因为每一次都会减小问题规模为原来的一半，复杂度和 Binary Search 一致：**O(log n)**
+
+**实现**：
+
+C 实现：
+
+```c
+int search(int* nums, int numsSize, int target) {
+    if (numsSize == 1) {
+        return nums[0] == target ? 0 : -1;
+    }
+    int lo = 0, hi = numsSize;
+    while (lo < hi) {
+        int mi = (lo + hi) >> 1;
+        if (nums[mi] == target) {
+            return mi;
+        }
+        if (nums[mi] <= nums[hi - 1]) {
+            if (target > nums[mi] && target <= nums[hi - 1]) {
+                lo = mi + 1;
+            } else {
+                hi = mi;
+            }
+        } else {
+            if (target >= nums[lo] && target < nums[mi]) {
+                hi = mi;
+            } else {
+                lo = mi + 1;
+            }
+        }
+    }
+    return -1;
+}
+```
+
+---
+
+## #53. Maximum Subarray
+
+Difficulty: Easy
+
+**问题描述**：
+
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the **array [-2,1,-3,4,-1,2,1,-5,4]**,
+
+the contiguous subarray **[4,-1,2,1]** has the largest **sum = 6**.
+
+**分析**：
+
+这道题其实不是个 Easy 的题目。感慨是确实没想到除了 **O(n^2)**，查阅资料后发现，需要使用著名的 **Kadane's Algorithm**。
+
+首先，题目需要两个变量记录和，一个叫做 **sum**，更像是一个中间变量，另一个是 **max**，用于记录已知出现的最大的子序列的和。
+
+明确这一点：最大子序列**首和尾必定不可能是和为负数的子序列**，因为去掉首尾依然是子序列，且和一定比加上负数首尾的子序列的和要大。
+
+算法主体：
+
+* 一次遍历，sum 负责从 0 开始加每一个数字，一旦 sum < 0，因为上述原因，这个子序列必定会被淘汰，所以需要重置 sum 为 0。
+
+* max 从 0 开始不断和 sum 比较，一旦 sum > max，更新 max 的值。
+
+**实现**：
+
+C 实现：
+
+```c
+int maxSubArray(int* nums, int numsSize) {
+    if (numsSize < 1) {
+        return 0;
+    }
+    int i, sum = 0, max = nums[0];
+    for (i = 0; i < numsSize; ++i) {
+        sum += nums[i];
+        if (sum > max) {
+            max = sum;
+        }
+        if (sum < 0) {
+            sum = 0;
+        }
+    }
+    return max;
 }
 ```
