@@ -23,6 +23,8 @@ DES 具有以下属性：
 
 作为一个经典的加密算法，DES 在数十年经久不衰，本文则希望通过自顶向下的方法，探讨一下 DES 算法的具体原理。
 
+另附：[**实现代码**](https://github.com/qyb225/Encryption/tree/master/DES)
+
 ---
 
 ## 一、DES 流程概览
