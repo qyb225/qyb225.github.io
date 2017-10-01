@@ -37,6 +37,10 @@
         h1, h2, h3 {
             border-bottom: 1px solid #CCC;
         }
+
+        p, li {
+            letter-spacing: $base-letter-spacing;
+        }
         
         pre {
         	margin: 0 -30px;
