@@ -11,7 +11,7 @@ profile: 这辈子怕是学不会 C++ 了
 github_username:  qyb225
 
 permalink: /archivers/:title
-plugins:
+plugins_dir:
  - jekyll-paginate
  - jekyll-gist
  - jemoji
@@ -25,3 +25,5 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+gems: [jekyll-paginate]
