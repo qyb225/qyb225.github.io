@@ -17,13 +17,13 @@ permalink: /cpp/constructor
 
 ```cpp
 //Constructor 1
-Person::Person(std::string& pName, std::int pAge) {
+Person::Person(std::string& pName, int pAge) {
     name = pName;
     age = pAge;
 }
 
 //Constructor2
-Person::Person(std::string& pName, std::int pAge): 
+Person::Person(std::string& pName, int pAge): 
                name(pName), age(pAge) {}
 ```
 
@@ -33,7 +33,7 @@ Person::Person(std::string& pName, std::int pAge):
 
 ```cpp
 //Constructor1 等价于
-Person::Person(std::string& pName, std::int pAge):
+Person::Person(std::string& pName, int pAge):
                name(""), age(0) {
     name = pName;
     age = pAge;
@@ -52,7 +52,7 @@ C++11 提供了委托构造函数，就是设置一个构造函数负责初始�
 
 ```cpp
 //这个构造函数负责初始化所有的变量
-Person::Person(std::string& pName, std::int pAge): 
+Person::Person(std::string& pName, int pAge): 
                name(pName), age(pAge) {}
 
 //其它的构造函数委托给上面的构造函数
