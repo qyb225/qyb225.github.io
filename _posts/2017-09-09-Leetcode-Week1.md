@@ -8,7 +8,7 @@ permalink: /leetcode/week1
 
 # Problem Set #1
 
-记录第一周 (2017/09/04 - 2017/09/10) 完成的题目。本周共完成 5 题。
+记录第一周 (2017/09/04 - 2017/09/10) 完成的题目。
 
 ---
 
@@ -86,115 +86,6 @@ ListNode* Solution::addTwoNumbers(ListNode* l1, ListNode* l2) {
 
 ---
 
-## #3. Longest Substring Without Repeating Characters
-
-Difficulty: Medium
-
-**问题描述**
-
-Given a string, find the length of the longest substring without repeating characters.
-
-Examples:
-
-Given **"abcabcbb"**, the answer is **"abc"**, which the length is **3**.
-
-Given **"bbbbb"**, the answer is **"b"**, with the length of **1**.  
-
-Given **"pwwkew"**, the answer is "wke", with the length of **3**.
-
-
-**分析**
-
-首先需要一个数组，存储所有的字串是否出现过。指针 i 和指针 j 分别指向第一二个元素。j 遍历整个字符串，如果 j 没有出现过，则自增。如果发生了重复，则 i 前移到重复元素后一个元素并消去途中所有元素的 exist 值。
-
-复杂度分析**：j 会遍历字符串，i 在最差情况下也会遍历字符串，字符串最多被遍历2次，所以复杂度为 **O(n)**
-
-**实现**
-
-C 实现：
-
-```c
-int lengthOfLongestSubstring(char* s) {
-    int i = 0, j = 1;
-    if (s[i] == '\0' || s[j] == '\0') {
-        return strlen(s);
-    }
-    int exist[256] = { 0 };
-    int count = 1, max = 0;
-    exist[s[i]] = 1;
-    while (s[j] != '\0') {
-        if (!exist[s[j]]) {
-            exist[s[j]] = 1;
-            if (j - i + 1 > max) {
-                max = j - i + 1;
-            }
-            ++j;
-        } else {
-            while (s[i] != s[j]) {
-                exist[s[i++]] = 0;
-            }
-            exist[s[i++]] = 0;
-        }
-    }
-    return max;
-}
-```
-
----
-
-## #6. ZigZag Conversion
-
-Difficulty: Medium
-
-**问题描述**
-
-The string **"PAYPALISHIRING"** is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
-
-```
-P   A   H   N
-A P L S I I G
-Y   I   R
-```
-
-And then read line by line: **"PAHNAPLSIIGYIR"**
-
-Write the code that will take a string and make this conversion given a number of rows
-
-**分析**
-
-直接根据题目表述构建矩阵，按照规则添加元素，然后一层一层导入最后的 ans 就能够解出此题，且运行效率也能让人满意，只需要遍历一遍字符串即可，复杂度 **O(n)**。
-
-**实现**
-
-C++ 实现：
-
-```cpp
-class Solution {
-public:
-    string convert(string s, int numRows) {
-        string* matrix = new string[numRows];
-        int i = 0;
-        while (i < s.size()) {
-            int j = 0;
-            while (j < numRows && i < s.size()) {
-                matrix[j++] += s[i++];
-            }
-            j -= 2;
-            while (j > 0 && i < s.size()) {
-                matrix[j--] += s[i++];
-            }
-        }
-        string ans = "";
-        for (int i = 0; i < numRows; ++i) {
-            ans += matrix[i];
-        }
-        delete[] matrix;
-        return ans;
-    }
-};
-```
-
----
 
 ## #7. Reverse Integer
 
@@ -236,39 +127,3 @@ int reverse(int x) {
     return sign * ans;
 }
 ```
-
----
-
-##  #50. Pow(x, n)
-
-Difficulty: Medium
-
-**问题描述**
-
-Implement pow(x, n).
-
-**分析**
-
-如果采用 x 连乘 n 次的方法解题，复杂度达到 **O(n)** 难以满足要求，因此采用上课所讲的分治法，将问题转化为两个 pow(x, n / 2)相乘，然后递归调用直到 n 为 0 或 1，可以完成该题目，复杂度 **O(logn)**
-
-**实现**
-
-C 实现：
-
-```c
-double myPow(double x, int n) {
-    if (0 > n) {
-        return 1 / myPow(x, -n);
-    }
-    if (0 == n) {
-        return 1;
-    }
-    if (1 == n) {
-        return x;
-    }
-    double temp = myPow(x, n >> 1);
-    return temp * temp * (n % 2 ? x : 1);
-}
-```
-
----
