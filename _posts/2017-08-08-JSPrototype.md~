@@ -11,7 +11,6 @@ permalink: /javascript/prototype
 在JavaScript中，每个 Object 都会有一个 **\__proto\__** 的属性，称为“原型”，如果调用了Object 没有的属性，则会沿着“原型链”向上查找。
 
 语句：
-
 ```js
 var A = Object.create(B);
 ```
