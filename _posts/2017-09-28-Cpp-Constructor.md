@@ -56,7 +56,7 @@ Person::Person(std::string& pName, int pAge):
                name(pName), age(pAge) {}
 
 //其它的构造函数委托给上面的构造函数
-Person::Person(std::string& Person::Person(): Person(pName, 0) {}
+Person::Person(std::string& pName): Person(pName, 0) {}
 Person::Person(int pAge): Person("no name", pAge) {}
 Person::Person(): Person("no name", 0) {}
 ```
