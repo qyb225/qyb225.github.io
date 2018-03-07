@@ -19,9 +19,9 @@ exit
 #include <stdlib.h>
 
 int main() {
-	printf("exit\n");
-	printf("buffer");
-	exit(0);
+    printf("exit\n");
+    printf("buffer");
+    exit(0);
 }
 ```
 
@@ -41,9 +41,9 @@ _exit
 #include <unistd.h>
 
 int main() {
-	printf("_exit\n");
-	printf("buffer");
-	_exit(0);
+    printf("_exit\n");
+    printf("buffer");
+    _exit(0);
 }
 ```
 

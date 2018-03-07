@@ -156,6 +156,7 @@ app.directive('dirInput', function () {
 ### (3) scope: **{ }**
 
 创建隔离scope，directive 将无法访问到父scope，传递数据时有两种绑定方式： 
+
 * **=**: 双向绑定
 * **@**: 单向绑定
 
