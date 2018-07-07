@@ -102,7 +102,7 @@ SELECT * FROM fulltext_index_test WHERE MATCH(text_col) AGAINST('keyword')
 
 ```sql
 /*完整选择性*/
-SELECT COUNT(DISTINCT city) / count(*) as selectivity
+SELECT COUNT(DISTINCT city) / COUNT(*) as selectivity
 FROM country;
 
 /*前缀索引选择性*/
@@ -209,7 +209,7 @@ InnoDB 和 MyISAM 不同的是，数据按照主键（Primary Key）聚簇，因
 ### 2.5 覆盖索引
 
 
-如果一个索引包含所有需要查询的字段的值，那就称之为 “覆盖索引”，覆盖索引可以极大地提高性能，因为只需要扫描索引而无须回表再查yici。
+如果一个索引包含所有需要查询的字段的值，那就称之为 “覆盖索引”，覆盖索引可以极大地提高性能，因为只需要扫描索引而无须回表再查一次。
 
 对于InnoDB的聚簇索引来说，使用二次索引需要二次查询，而使用覆盖索引则可以避免这样的事情。
 
